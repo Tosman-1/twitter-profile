@@ -1,0 +1,188 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: TwitterChirp;
+  src: url(ChirpRegular.ttf);
+}
+
+.cya-div{
+  background-color: black;
+  width: 600px;
+  height: auto;
+  border-radius: 15px;
+  margin: 80px auto;
+  color: #f3f1f1;
+  font-family: TwitterChirp;
+}
+.cya-top{
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+}
+
+.close:hover{
+  background-color: #66656559;
+}
+.close{
+  padding: 3px 3px 0 3px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+}
+
+.side{
+  display: flex;
+  /* align-items: left; */
+  flex-basis: 50%;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+.center{
+  display: flex;
+  flex-basis: auto;
+  align-items: center;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.cya-middle{
+  padding: 0 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+.cm-t{
+  max-width: 300px;
+}
+.cm-t h2{
+  font-size: 29px;
+  margin: 15px 0 10px 0;
+  width: 300px;
+}
+.cm-i form{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.cm-i form input{
+  color: #f3f1f1;
+  padding: 20px 10px;
+  font-size: 16px;
+  background: transparent;
+  border: 1px solid #cccbcb70;
+  border-radius: 5px;
+  margin: 30px 0 0 0;
+  width: 500px;
+  /* max-width: 500px; */
+}
+.cm-it{
+  max-width: 500px;
+}
+.cm-it h3{
+  margin: 40px 0 15px 0;
+  font-size: 16px;
+}
+.cm-it p{
+  color: #b3afafab;
+  margin: 0 0 10px 0 
+}
+
+.cm-sel-div{
+  display: flex;
+  align-items: stretch;
+  margin: 20px 0;
+}
+.cm-select{
+  position: relative;
+  border: 1px solid #cccbcb70;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  border-radius: 3px;
+  flex-shrink: 0;
+  margin: 0 10px 0 0;
+  cursor: pointer;
+}
+.cm-select:focus{
+  border: 2px solid #1a89e4;
+}
+.cm-select label{
+  color: #b3afafab;
+  position: absolute;
+  left: 8px;
+  top: 5px;
+}
+.arrd{
+  position: absolute;
+  top: 15px;
+  right: 5px;
+  z-index: 0;
+}
+.cm-select select{
+  padding: 10px 15px;
+  margin: 17px 0 0 0;
+  appearance: none;
+  background: transparent;
+  border: none;
+  outline: none;
+  flex: 1;
+  color: #f3f1f1;
+  font-size: 18px;
+  z-index: 10;
+  cursor: pointer;
+}
+.grow-2{
+  flex-grow: 2;
+}
+.grow-1{
+  flex-grow: 1;
+}
+
+.cm-select select option{
+  background-color: black;
+  color: #f3f1f1;
+  font-size: 17px;
+}
+
+.cya-bottom{
+  padding: 0 70px 30px 70px;
+  display: flex;
+  margin: 60px 0;
+}               
+.cya-bottom button{
+  padding: 18px 0;
+  flex: 1;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #dfdfdfb4;
+}
+
+#sign-up-m{
+  color: #f3f1f1;
+}
+
+/* media-query */
+
+@media(max-width: 700px){
+  .cya-div{
+    /* background-color: black; */
+    width: 100vw;
+    height: 100vh;
+    /* border-radius: 15px; */
+    margin: auto;
+    /* color: #f3f1f1; */
+    /* font-family: TwitterChirp; */
+  }
+  .cya-bottom{
+    padding: 0 30px 30px 30px;
+    display: flex;
+    margin: 170px 0 0 0;
+  }
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style/sign-in.css" />
+    <link rel="stylesheet" href="style/sign-up.css" />
+    <!-- <link rel="stylesheet" href="style/landing-page.css" /> -->
+  </head>
+  <body>
+    <div class="full-bg">
+      <div class="cya-div">
+        <div class="cya-top">
+          <div class="side">
+            <a href="index.html" class="close" title="close">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="25px"
+                viewBox="0 -960 960 960"
+                width="25px"
+                fill="#ffff"
+              >
+                <path
+                  d="M256-192.35 192.35-256l224-224-224-224L256-767.65l224 224 224-224L767.65-704l-224 224 224 224L704-192.35l-224-224-224 224Z"
+                />
+              </svg>
+            </a>
+          </div>
+          <div class="center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="40"
+              height="40"
+              viewBox="0,0,256,256"
+            >
+              <g
+                fill="#fbfbfb"
+                fill-rule="nonzero"
+                stroke="none"
+                stroke-width="1"
+                stroke-linecap="butt"
+                stroke-linejoin="miter"
+                stroke-miterlimit="10"
+                stroke-dasharray=""
+                stroke-dashoffset="0"
+                font-family="none"
+                font-weight="none"
+                font-size="none"
+                text-anchor="none"
+                style="mix-blend-mode: normal"
+              >
+                <g transform="scale(8.53333,8.53333)">
+                  <path
+                    d="M26.37,26l-8.795,-12.822l0.015,0.012l7.93,-9.19h-2.65l-6.46,7.48l-5.13,-7.48h-6.95l8.211,11.971l-0.001,-0.001l-8.66,10.03h2.65l7.182,-8.322l5.708,8.322zM10.23,6l12.34,18h-2.1l-12.35,-18z"
+                  ></path>
+                </g>
+              </g>
+            </svg>
+          </div>
+          <div class="side"></div>
+        </div>
+        <div class="cya2-middle">
+          <div class="cm-t">
+            <h2>Sign in to X</h2>
+          </div>
+          <div class="si-c">
+            <button>
+              <img src="images/icons8-google.svg" alt="" />
+              <span class="light">Sign in with Google</span>
+            </button>
+            <button>
+              <img src="images/icons8-apple-logo.svg" alt="" />
+              <span>Sign up with Apple</span>
+            </button>
+            <div class="line">
+              <div class="ll"></div>
+              <div class="lt">
+                <span>or</span>
+              </div>
+              <div class="lr"></div>
+            </div>
+            <div class="si-inp">
+              <input type="text" placeholder="Email" id="inemail" />
+              <input type="password" placeholder="Password" id="inpass" />
+            </div>
+            <div class="si-butn">
+              <button onclick="signIn()">Next</button>
+              <button id="ssi-butn">Forgot password</button>
+            </div>
+          </div>
+          <div class="btm-div">
+            <p>Dont't have an account? <a href="">Sign up</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="x.js"></script>
+  </body>
+</html>

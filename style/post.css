@@ -1,0 +1,113 @@
+
+.flt-div{
+  width: 600px;
+  background-color: black;
+  margin: 40px auto;
+  border-radius: 20px;
+}
+
+.t-nv{
+  display: inline-flex;
+  align-items: center;
+  gap: 30px;
+
+}
+.t-nv a{
+  text-decoration: none;
+  color: #2e9ddd;
+  font-size: 17px;
+}
+.mcm-xu{
+  display: none;
+}
+.dnv{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px 10px 0;
+}
+
+.ps-sst{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid #f3faff6b;
+  border-radius: 10px;
+  padding: 0 10px;
+  width: fit-content;
+}
+.pp{
+  color: #2e9ddd;
+}
+.drp-i{
+  height: 15px;
+  width: 15px;
+  fill: #2e9ddd;
+}
+.mc-ip{
+  max-height: 720px;
+  min-height: 96px;
+  padding: 12px 0;
+  align-items: flex-start;
+}
+
+.ecr{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 20px 10px 20px;
+  border-bottom: 1px solid #7c7c7cc9;
+
+}
+
+.pss-ib{
+  padding: 10px;
+}
+
+.n-ixu{
+  display: none;
+}
+
+.file-input{
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.upimage{
+  text-align: center;
+}
+.post-imgg{
+  width: 70%;
+}
+
+/* media query */
+
+@media(max-width: 705px){
+  .flt-div{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border-radius: 0;
+    padding: 0 40px;
+  }
+  .n-ixu{
+    display: block;
+  }
+  .n-ixd{
+    display: none;
+  }
+  .mcm-xu{
+    display: block;
+  }
+  .mcm-xd{
+    display: none;
+  }
+}
+
+@media(max-width: 450px){
+  .fit-div{
+    padding: 10px;
+  }
+}
+
