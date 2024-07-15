@@ -229,7 +229,7 @@
             <div class="h-bottom">
               <div class="h-btm-inner h-btmh">
                 <div class="hb-img">
-                  <img src="images/profile-pic.jpg" alt="" />
+                  <img src="" alt="" class="pfrpp" />
                 </div>
                 <div class="hb-txt hb-tdd">
                   <p class="hb-t1 pfrName"></p>
@@ -268,23 +268,31 @@
                     </svg>
                   </div>
                   <div class="prf-nt">
-                    <p class="pn-tt prf-tt pfrName">Red_series</p>
-                    <p class="pn-lt prf-lt">1,111 posts</p>
+                    <p class="pn-tt prf-tt pfrName"></p>
+                    <p class="pn-lt prf-lt" id="postLen"></p>
                   </div>
                 </nav>
                 <div class="mc-prf"></div>
                 <div class="mcp-cont">
                   <div class="mcp-ceb">
                     <div class="mcp-c">
-                      <img src="images/my-prf.jpg" alt="" />
+                      <img src="" alt="" class="pfrpp" />
                     </div>
                     <div class="mcp-eb">
-                      <button>Edit profile</button>
+                      <button>
+                        <input
+                          type="file"
+                          class="file-input"
+                          accept="image/*"
+                          onchange="uploadPfp(event)"
+                        />
+                        Edit profile pic
+                      </button>
                     </div>
                   </div>
                   <div class="mcp-tt">
-                    <p class="pn-tt prf-tt pfrName">Red_series</p>
-                    <p class="pn-lt prf-lt pfrusrName">@Red_Seriess</p>
+                    <p class="pn-tt prf-tt pfrName"></p>
+                    <p class="pn-lt prf-lt pfrusrName"></p>
                     <p class="prf-tx">
                       A series of artistic paintings . Each expressing certain
                       emotions which can only be felt when looked closely.
@@ -309,7 +317,7 @@
                           ></path>
                         </g>
                       </svg>
-                      <p>Joined January 2022</p>
+                      <p id="dateJoined"></p>
                     </div>
                   </div>
                   <div class="mcp-txt">
@@ -353,7 +361,7 @@
                   </div>
                 </div>
                 <div class="mc-pst-div" id="mainPostDiv">
-                  <div class="mc-pst">
+                  <!-- <div class="mc-pst">
                     <div class="pin">
                       <svg viewBox="0 0 24 24" aria-hidden="true" class="pin-i">
                         <g>
@@ -764,7 +772,7 @@
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -1260,18 +1268,6 @@
       <div class="flt-div">
         <div class="dnv">
           <div class="n-icon" onclick="showModal(showPost)">
-            <!-- <svg
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-              class="n-i n-ixu"
-              onclick="document.getElementById('post').style.display='none'"
-            >
-              <g>
-                <path
-                  d="M7.414 13l5.043 5.04-1.414 1.42L3.586 12l7.457-7.46 1.414 1.42L7.414 11H21v2H7.414z"
-                ></path>
-              </g>
-            </svg> -->
             <svg viewBox="0 0 24 24" aria-hidden="true" class="n-i n-ixd">
               <g>
                 <path

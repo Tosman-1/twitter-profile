@@ -2,18 +2,23 @@ let signUpDatabase = JSON.parse(localStorage.getItem('signUpDatabase'))
 let signedInUserIndex = localStorage.getItem('signedInUserIndex')
 
 let postImage = document.getElementById('uploadimage')
+let dateJoined = document.getElementById('dateJoined')
 let profileName = document.querySelectorAll('.pfrName')
 let userName = document.querySelectorAll('.pfrusrName')
-console.log(profileName);
+let profilePic = document.querySelectorAll('.pfrpp')
+// console.log(profileName);
 
-let postArr = JSON.parse(localStorage.getItem('postArr')) || []
+let postArr = JSON.parse(localStorage.getItem('signUpDatabase'))[signedInUserIndex].posts || []
 // let arrOfPost = JSON.parse(localStorage.getItem('arrOfPost')) || []
 let upimg;
 let isModalOpen = false
 let myName;
 let myUsername;
+let profPic;
 
 let showPost = document.getElementById('post')
+
+postLen.innerText = `${postArr.length} posts`
 
 function showModal(param) {
   if (!isModalOpen) {
@@ -24,6 +29,34 @@ function showModal(param) {
     isModalOpen = false
   }
 }
+
+function uploadPfp(ev) {
+  let file = ev.target.files[0]
+  if (file.size > 1 * 1024 *1024) {
+    alert('file is too large. upload file less than 1mb')
+    return
+  }
+  let myReader = new FileReader()
+
+    if (file) {
+      myReader.readAsDataURL(file)
+    }
+
+    myReader.addEventListener('load', (ev)=>{
+      profilePic.forEach((pic) => {
+        pic.src = ev.target.result
+        // profPic = ev.target.result
+      });
+
+      signUpDatabase[signedInUserIndex].profilePicture = ev.target.result
+      localStorage.setItem('signUpDatabase', JSON.stringify(signUpDatabase))
+
+      console.log(signUpDatabase);
+
+      window.location.reload()
+    })
+}
+
 
 if (signedInUserIndex === null) {
     alert('you need to login')
@@ -40,8 +73,16 @@ if (signedInUserIndex === null) {
       data.innerText = `@${user.username}`
       myUsername = user.username
     });
-    // profileName.innerText = user.name
-    // pfrusrName.innerText = user.username
+
+    // if (user.profilePicture) {
+      profilePic.forEach((pic) => {
+        pic.src = user.profilePicture
+        profPic = user.profilePicture
+      });
+    
+
+    dateJoined.innerText = `Joined ${user.dateJoined}`
+    
 }
 
 function chooseFile(ev) {
@@ -53,24 +94,24 @@ function chooseFile(ev) {
     }
 
     myReader.addEventListener('load', (ev)=>{
-      upimg= ev.target.result
-      // console.log(upimg);
+      upimg = ev.target.result
       postImage.src = upimg
-      // picArr.push(ev.target.result)
     })
     
 }
 
+
 function displayPost() {
   let todoHTML = "";
 
-  // let currentUser = postArr.find((profile)=> signedInUserIndex === postArr.userId)
-
-  postArr[signedInUserIndex].forEach((data, i) => {
+  postArr.forEach((data, i) => {
+    if (data.txt === '' && data.imgsrc === '') {
+      return console.log('empty');
+    }
     let html = `
         <div class="mc-pst">
                     <div class="hb-img">
-                      <img src="images/profile-pic.jpg" alt="" />
+                      <img src="${profPic}" alt="" class="pfrpp" />
                     </div>
                     <div class="mc-pss">
                       <div class="mc-pni">
@@ -214,35 +255,29 @@ function displayPost() {
   document.getElementById("mainPostDiv").innerHTML = todoHTML;
 }
 
-function shwoDisPost() {
-  if (postArr === '') {
-    document.getElementById("mainPostDiv").innerHTML = 'No post'
-  } else if(postArr.find((data) => data.userId === signedInUserIndex)) {
-    displayPost()
-  } else {
-    console.log(Error);
-  }
-}
 
-shwoDisPost()
+displayPost()
+
 
 function post() {
   let postText = postInputVal.value
 
-  console.log(postText);
+  if (!postText && !upimg) {
+    alert('post can not be empty')
+  } else {
+    // console.log(postText);
 
   // postArr.unshift({text: postText,
   //   imgsrc: upimg
   // })
 
-  let postObj = {userId: signedInUserIndex, txt: postText, imgsrc: upimg}
+  let postObj = {txt: postText, imgsrc: upimg}
 
   postArr.unshift(postObj)
+  signUpDatabase[signedInUserIndex].posts = postArr
+  localStorage.setItem('signUpDatabase', JSON.stringify(signUpDatabase))
 
-  // arrOfPost.push(postArr)
-  localStorage.setItem('postArr', JSON.stringify(postArr))
-
-console.log(postArr);
+// console.log(signUpDatabase);
 
   displayPost()
 
@@ -251,6 +286,9 @@ console.log(postArr);
 
   postInputVal.value =''
   postImage.src = ''
+  upimg =""
+  }
+
 }
 
 

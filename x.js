@@ -15,17 +15,35 @@ function signModal(param) {
   }
 }
 
+if (
+    upname.value.trim() === '' && 
+    upuname.value === '' &&
+    upemail.value.trim() === '' && 
+    uppass.value.trim() === '' &&
+    confirmpassword.value.trim() === ''
+  ) {
+    signUpBtn.style.backgroundColor = "white";
+  } else {
+    signUpBtn.style.backgroundColor = "#787a7a";
+  }
+
   function signUp() {
-      if (upname.value.trim() === '' || upuname.value === '' || upemail.value.trim() === '' || uppass.value.trim() === '' || confirmpassword.value.trim() === '') {
+      if (upname.value.trim() === '' || 
+          upuname.value === '' || 
+          upemail.value.trim() === '' || 
+          uppass.value.trim() === '' || 
+          confirmpassword.value.trim() === ''
+        ) {
           alert('all fields are mandatory')
       }
       else if (!emailregex.test(upemail.value.trim())) {
           alert('email format is incorrect')
       } else if (signUpDatabase.find((data) => data.email === upemail.value.trim())) {
           alert("user already exists")
-      }
+      } else if (signUpDatabase.find((data) => data.username === upuname.value.trim())) {
+        alert("username already exists")
 
-      else if (!passwordRegex.test(uppass.value.trim())) {
+      } else if (!passwordRegex.test(uppass.value.trim())) {
           alert('password should be atleast 8 chars, with a special char, a number , a lowercase & uppercase letter')
       } else if (confirmpassword.value.trim() !== uppass.value.trim()) {
           alert('passwords do not match')
@@ -39,6 +57,7 @@ function signModal(param) {
               username: upuname.value,
               email: upemail.value,
               password: uppass.value,
+              dateJoined: formatTime()
               // agreement: true
           }
 
@@ -55,7 +74,6 @@ function signModal(param) {
 
 
   function signIn() {
-    // let signUpDatabase = JSON.parse(localStorage.getItem('signUpDatabase'))
       if (inemail.value == '' || inpass.value == '') {
           alert('all fields are mandatory')
       } else if (signUpDatabase.find((data) => data.email === inemail.value && data.password !== inpass.value)) {
@@ -70,7 +88,56 @@ function signModal(param) {
           alert('you do not have an account , sign up!')
            showSignIn.style.display = 'none'
           showSignUp.style.display='block'
-          // window.location.href = 'signup.html'
       }
 
+  }
+
+  function formatTime() {
+    let todaysDate = new Date();
+    let month = todaysDate.getMonth();
+    let year = todaysDate.getFullYear();
+    let actualMonth = "";
+  
+    switch (true) {
+      case month === 0:
+        actualMonth = "January";
+        break;
+      case month === 1:
+        actualMonth = "February";
+        break;
+      case month === 2:
+        actualMonth = "March";
+        break;
+      case month === 3:
+        actualMonth = "April";
+        break;
+      case month === 4:
+        actualMonth = "May";
+        break;
+      case month === 5:
+        actualMonth = "June";
+        break;
+      case month === 6:
+        actualMonth = "July";
+        break;
+      case month === 7:
+        actualMonth = "August";
+        break;
+      case month === 8:
+        actualMonth = "September";
+        break;
+      case month === 9:
+        actualMonth = "October";
+        break;
+      case month === 10:
+        actualMonth = "November";
+        break;
+      case month === 11:
+        actualMonth = "December";
+        break;
+      default:
+        break;
+    }
+  
+    return `${actualMonth} ${year}`;
   }
