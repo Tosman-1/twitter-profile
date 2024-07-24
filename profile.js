@@ -15,20 +15,11 @@ let isModalOpen = false
 let myName;
 let myUsername;
 let profPic;
-
+ 
 let showPost = document.getElementById('post')
 
 postLen.innerText = `${postArr.length} posts`
 
-function showModal(param) {
-  if (!isModalOpen) {
-    param.style.display='block'
-    isModalOpen = true
-  } else {
-    param.style.display='none' 
-    isModalOpen = false
-  }
-}
 
 function uploadPfp(ev) {
   let file = ev.target.files[0]
@@ -96,6 +87,7 @@ function chooseFile(ev) {
     myReader.addEventListener('load', (ev)=>{
       upimg = ev.target.result
       postImage.src = upimg
+      // postImage.style.height = "300px"
     })
     
 }
@@ -291,7 +283,18 @@ function post() {
 
 }
 
-
+function showModal(param) {
+  if (!isModalOpen) {
+    param.style.display='block'
+    isModalOpen = true
+  } else {
+    param.style.display='none' 
+    postInputVal = ""
+    upimg = ""
+    postImage.src = ""
+    isModalOpen = false
+  }
+}
 
 
 

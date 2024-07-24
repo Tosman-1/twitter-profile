@@ -46,7 +46,7 @@
 }
 .mc-ip{
   max-height: 720px;
-  min-height: 96px;
+  min-height: 50px;
   padding: 12px 0;
   align-items: flex-start;
 }
@@ -76,9 +76,12 @@
 }
 .upimage{
   text-align: center;
+  max-height: 400px;
+  overflow: auto;
 }
 .post-imgg{
-  width: 70%;
+  width: 80%;
+  border-radius: 20px;
 }
 
 /* media query */
